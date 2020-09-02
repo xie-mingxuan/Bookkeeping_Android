@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".page.RegisterPage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/REGISTER_please_input_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/please_input_username"
+            android:inputType="textPersonName"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/REGISTER_please_input_decimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="-0.123456789"
+            android:ems="10"
+            android:textSize="25sp"
+            android:hint="@string/please_input_decimal"
+            android:inputType="number"/>
+        <Button
+            android:id="@+id/REGISTER_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_green_15dp"
+            android:text="@string/register"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/REGISTER_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_blue_15dp"
+            android:text="@string/back"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</RelativeLayout>

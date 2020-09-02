@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Bookkeeping</string>
+    <string name="username">用户名</string>
+    <string name="please_input_username">请输入用户名</string>
+    <string name="password">密&#12288;码</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="login">&#160;登&#160;录&#160;</string>
+    <string name="exit">&#160;退&#160;出&#160;</string>
+    <string name="back">&#160;返&#160;回&#160;</string>
+    <string name="register">&#160;注&#160;册&#160;</string>
+    <string name="welcome">Bookkeeping</string>
+    <string name="welcome_user">欢迎您，</string>
+    <string name="welcome_admin">欢迎管理员</string>
+    <string name="now_your_money_is">当前您的余额为：</string>
+    <string name="query_record">查 询</string>
+    <string name="yuan">元</string>
+    <string name="please_input_manage_money">请输入变更金额</string>
+    <string name="positive_plus_negative_minus">正数增加，负数减少</string>
+    <string name="confirm">确 认</string>
+    <string name="logout">注 销</string>
+    <string name="delete_account">删除账户</string>
+    <string name="change_password">修改密码</string>
+    <string name="please_input_old_password">请输入原始密码</string>
+    <string name="please_input_new_password">请输入新密码</string>
+    <string name="please_input_decimal">请输入初始钱数（元）</string>
+    <string name="add">添加用户</string>
+    <string name="add_user">添加用户账户</string>
+    <string name="add_admin">添加管理员账户</string>
+    <string name="manage_user">管理用户</string>
+</resources>
