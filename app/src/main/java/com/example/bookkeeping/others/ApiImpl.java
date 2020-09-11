@@ -39,25 +39,26 @@ public class ApiImpl {
      * @param userId      修改密码账户
      * @param oldPassword 旧密码
      * @param newPassword 新密码
-     * @return 成功返回 false
+     * @return 成功返回 0, 网络错误返回 -1, 原密码错误返回 1
      */
-    public static boolean changePassword(int userId, String oldPassword, String newPassword) {
+    public static int changePassword(int userId, String oldPassword, String newPassword) {
         try {
             HttpURLConnection connection = getHTTPConnection(API_USER_CHANGE_PASSWORD, "POST");
             String body = "userId=" + userId + "&password=" + oldPassword + "&newPassword=" + newPassword;
             connection.getOutputStream().write(body.getBytes());
 
-            if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) return false;
+            if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) return -1;
 
             String s;
             StringBuilder sb = new StringBuilder();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             while ((s = bufferedReader.readLine()) != null) sb.append(s);
             JSONObject object = new JSONObject(sb.toString());
-            return object.getInt("status") == 0;
+            if (object.getInt("status") == 0) return 0;
+            return 1;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return -1;
         }
     }
 
@@ -155,14 +156,15 @@ public class ApiImpl {
     /**
      * 修改账户余额方法
      *
-     * @param userId  账户 id
-     * @param decimal 修改哦金额
+     * @param userId      账户 id
+     * @param decimal     修改金额
+     * @param explanatory 备注
      * @return 成功返回 true
      */
-    public static boolean manageMoney(int userId, final BigDecimal decimal) {
+    public static boolean manageMoney(int userId, final BigDecimal decimal, String explanatory) {
         try {
             HttpURLConnection connection = getHTTPConnection(API_USER_MANAGE_MONEY, "POST");
-            String body = "userId=" + userId + "&decimal=" + decimal;
+            String body = "userId=" + userId + "&decimal=" + decimal + "&explanatory=" + explanatory;
             connection.getOutputStream().write(body.getBytes());
 
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) return false;

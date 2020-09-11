@@ -87,6 +87,7 @@ public class QueryPage extends AppCompatActivity {
                 RecordUser record = new RecordUser();
                 record.setDecimal(new BigDecimal(object1.getString("option")).setScale(2));
                 record.setTime(object1.getString("time").replace('T',' ').substring(0,19));
+                record.setExplanatory(object1.getString("text"));
                 list.add(record);
             }
 

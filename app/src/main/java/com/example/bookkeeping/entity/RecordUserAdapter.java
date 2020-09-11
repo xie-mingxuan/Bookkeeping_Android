@@ -27,26 +27,31 @@ public class RecordUserAdapter extends ArrayAdapter<RecordUser> {
         RecordUser recordUser = getItem(position);
 
         View view;
-        ViewHolder viewHolder;
+        ViewHolder viewHolder = new ViewHolder();
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
 
-            viewHolder = new ViewHolder();
             viewHolder.decimal = view.findViewById(R.id.RECORD_USER_decimal);
             viewHolder.time = view.findViewById(R.id.RECORD_USER_time);
+            viewHolder.explanatory = view.findViewById(R.id.RECORD_USER_explanatory);
             view.setTag(viewHolder);
         } else {
             view = convertView;
-            viewHolder = (ViewHolder) view.getTag();
+            viewHolder = (RecordUserAdapter.ViewHolder) view.getTag();
         }
 
         viewHolder.decimal.setText(recordUser.getDecimal().toString() + "元");
-        viewHolder.time.setText(recordUser.getTime().toString());
+        viewHolder.time.setText(recordUser.getTime());
+        String explanatory = recordUser.getExplanatory();
+        if (explanatory.equals("null"))
+            viewHolder.explanatory.setText("暂无备注");
+        else viewHolder.explanatory.setText(explanatory);
         return view;
     }
 
     static class ViewHolder {
         TextView decimal;
         TextView time;
+        TextView explanatory;
     }
 }

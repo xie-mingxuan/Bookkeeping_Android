@@ -49,11 +49,13 @@ public class ChangePasswordPage extends AppCompatActivity {
                     return;
                 }
 
-                if (changePassword(userId, oldPassword, newPassword)) {
+                int res = changePassword(userId, oldPassword, newPassword);
+                if (res == 0) {
                     setResult(0);
                     Toast.makeText(getApplicationContext(), "修改成功, 请重新登陆", Toast.LENGTH_SHORT).show();
                     finish();
-                } else Toast.makeText(getApplicationContext(), "修改失败", Toast.LENGTH_SHORT).show();
+                } else if (res == -1) Toast.makeText(getApplicationContext(), "网络错误, 修改失败", Toast.LENGTH_SHORT).show();
+                else if (res == 1) Toast.makeText(getApplicationContext(), "原密码不正确", Toast.LENGTH_SHORT).show();
             }
         });
 

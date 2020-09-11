@@ -48,20 +48,24 @@ public class UserPage extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText text = findViewById(R.id.USER_please_input_manage_money);
-                String str = text.getText().toString();
+                EditText change = findViewById(R.id.USER_please_input_manage_money);
+                String str = change.getText().toString();
                 if (str.equals("")) return;
                 if (Double.parseDouble(str) == 0.0) {
                     Toast.makeText(getApplicationContext(), "请输入非零值", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 BigDecimal decimal = new BigDecimal(str);
-                if (!manageMoney(user.getUserId(), decimal)) {
+                EditText explanatory = findViewById(R.id.USER_please_input_explanatory);
+                String explain = explanatory.getText().toString();
+                if (explain.equals("")) explain = "null";
+                if (!manageMoney(user.getUserId(), decimal, explain)) {
                     Toast.makeText(getApplicationContext(), "余额变动失败", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 user.setMoney(user.getMoney().add(decimal).setScale(2));
-                text.setText(null);
+                change.setText(null);
+                explanatory.setText(null);
                 money.setText(user.getMoney().toString());
             }
         });

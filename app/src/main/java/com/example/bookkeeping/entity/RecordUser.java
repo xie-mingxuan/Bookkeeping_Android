@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class RecordUser {
     private BigDecimal decimal;
     private String time;
+    private String explanatory;
 
     public BigDecimal getDecimal() {
         return decimal;
@@ -20,5 +21,13 @@ public class RecordUser {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getExplanatory() {
+        return explanatory;
+    }
+
+    public void setExplanatory(String explanatory) {
+        this.explanatory = explanatory;
     }
 }

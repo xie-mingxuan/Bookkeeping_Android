@@ -1,7 +1,7 @@
 package com.example.bookkeeping.others;
 
 public class Constant {
-    private static final String IP = "http://192.168.68.91:8080";
+    private static final String IP = "http://10.136.245.170:8080";
     private static final String USER_API = "/api/user";
     private static final String ADMIN_API = "/api/admin";
     private static final String LOGIN = "/login";
